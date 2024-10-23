@@ -1,0 +1,82 @@
+//Exp : 8
+//Name : Shreyas Santosh PAWANGADKAR
+//Roll No : 47
+
+//HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Website</h1>
+
+
+    <h2>Change Background Color</h2>
+    <input type="text" id="inputField" placeholder="Focus here to change background">
+    <button id="resetButton">Reset Background Color</button>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="index.js"></script>
+</body>
+</html>
+
+//JavaScript
+
+const body = document.body;
+
+// Change background color on mouse over event
+body.addEventListener('mouseover', function() {
+    body.style.backgroundColor = 'red'; // Light cyan color
+});
+
+// Change background color on mouse out event
+body.addEventListener('mouseout', function() {
+    body.style.backgroundColor = ''; // Reset to default
+});
+
+// Change background color on focus event
+const inputField = document.getElementById('inputField');
+inputField.addEventListener('focus', function() {
+    body.style.backgroundColor = '#ffe0b2'; // Light orange color
+});
+
+// Reset background color when input loses focus
+inputField.addEventListener('blur', function() {
+    body.style.backgroundColor = ''; // Reset to default
+});
+
+// Reset button functionality
+const resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', function() {
+    body.style.backgroundColor = ''; // Reset to default
+});

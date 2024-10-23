@@ -1,0 +1,94 @@
+//Exp : 7
+//Name : Shreyas Santosh PAWANGADKAR
+//Roll No : 47
+
+//HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Set Operations</h1>
+    <div>
+        <label for="inputA">Enter elements of Set A (comma-separated):</label><br>
+        <input type="text" id="inputA" placeholder="e.g., 1,2,3,4"><br><br>
+
+        <label for="inputB">Enter elements of Set B (comma-separated):</label><br>
+        <input type="text" id="inputB" placeholder="e.g., 3,4,5,6"><br><br>
+
+        <button onclick="calculateSetOperations()">Calculate Set Operations</button>
+    </div>
+    <div>
+        <h2>Results</h2>
+        <pre id="results"></pre>
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="index.js"></script>
+</body>
+</html>
+
+//JavaScript
+
+class SetOperations {
+    // Union of two sets
+    static union(setA, setB) {
+        return new Set([...setA, ...setB]);
+    }
+
+    // Intersection of two sets
+    static intersection(setA, setB) {
+        return new Set([...setA].filter(item => setB.has(item)));
+    }
+
+    // Difference of two sets (A - B)
+    static difference(setA, setB) {
+        return new Set([...setA].filter(item => !setB.has(item)));
+    }
+
+    // Set difference (B - A)
+    static setDifference(setA, setB) {
+        return new Set([...setB].filter(item => !setA.has(item)));
+    }
+}
+
+function calculateSetOperations() {
+    const inputA = document.getElementById("inputA").value;
+    const inputB = document.getElementById("inputB").value;
+
+    const setA = new Set(inputA.split(',').map(Number));
+    const setB = new Set(inputB.split(',').map(Number));
+
+    const results = [];
+    results.push("Set A: " + [...setA]);
+    results.push("Set B: " + [...setB]);
+
+    const unionResult = SetOperations.union(setA, setB);
+    results.push("Union (A ∪ B): " + [...unionResult]);
+
+    const intersectionResult = SetOperations.intersection(setA, setB);
+    results.push("Intersection (A ∩ B): " + [...intersectionResult]);
+
+    const differenceResult = SetOperations.difference(setA, setB);
+    results.push("Difference (A - B): " + [...differenceResult]);
+
+    const setDifferenceResult = SetOperations.setDifference(setA, setB);
+    results.push("Set Difference (B - A): " + [...setDifferenceResult]);
+
+    document.getElementById("results").textContent = results.join('\n');
+}

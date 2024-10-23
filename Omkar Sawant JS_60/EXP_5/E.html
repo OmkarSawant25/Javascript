@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        label, input {
+            font-size: 18px;
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            font-size: 18px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="demo">Timer :</p>
+
+    <label for="date">Enter date (format: MM, DD, YYYY):</label>
+    <input type="text" id="date" placeholder="MM, DD, YYYY">
+
+    <label for="time">Enter time (format: HH:MM:SS):</label>
+    <input type="text" id="time" placeholder="HH:MM:SS">
+
+    <button id="start" onclick="display()">Start</button>
+
+    <!-- Linking external JavaScript file -->
+    <script src="E.js"></script>
+
+</body>
+
+</html>

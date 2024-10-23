@@ -1,0 +1,80 @@
+//HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column; /* Align items vertically */
+            max-width: 400px; /* Set a max width for the form */
+        }
+        label {
+            margin-top: 10px; /* Add space above each label */
+        }
+        input, select {
+            padding: 10px;
+            margin: 5px 0; /* Add margin below each input/select */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px; /* Add space above the button */
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Information Form</h1>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" placeholder="Enter your address">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" placeholder="Enter your city">
+
+        <label for="state">State:</label>
+        <input type="text" id="state" placeholder="Enter your state">
+
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" id="mobile" placeholder="Enter your mobile number">
+
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <button type="submit">Submit</button>
+    </form>
+    <div id="errorMessages" class="error"></div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="h.js"></script>
+</body>
+</html>

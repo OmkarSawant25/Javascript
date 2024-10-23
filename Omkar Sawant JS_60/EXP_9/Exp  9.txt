@@ -1,0 +1,151 @@
+//Exp : 9
+//Name : Shreyas Santosh PAWANGADKAR
+//Roll No : 47
+
+//HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column; /* Align items vertically */
+            max-width: 400px; /* Set a max width for the form */
+        }
+        label {
+            margin-top: 10px; /* Add space above each label */
+        }
+        input, select {
+            padding: 10px;
+            margin: 5px 0; /* Add margin below each input/select */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px; /* Add space above the button */
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Information Form</h1>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" placeholder="Enter your address">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" placeholder="Enter your city">
+
+        <label for="state">State:</label>
+        <input type="text" id="state" placeholder="Enter your state">
+
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" id="mobile" placeholder="Enter your mobile number">
+
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <button type="submit">Submit</button>
+    </form>
+    <div id="errorMessages" class="error"></div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="index.html"></script>
+</body>
+</html>
+
+//JavaScript
+
+document.getElementById('studentForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    
+    // Clear previous error messages
+    const errorMessagesDiv = document.getElementById('errorMessages');
+    errorMessagesDiv.innerHTML = '';
+
+    // Get form values
+    const name = document.getElementById('name').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const state = document.getElementById('state').value.trim();
+    const gender = document.getElementById('gender').value;
+    const mobile = document.getElementById('mobile').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    let errors = [];
+
+    // Validate Name
+    const nameRegex = /^[A-Za-z\s]+$/;
+    if (!name || !nameRegex.test(name)) {
+        errors.push("Please enter a valid name (letters and spaces only).");
+    }
+
+    // Validate Address
+    if (!address) {
+        errors.push("Address cannot be empty.");
+    }
+
+    // Validate City
+    if (!city) {
+        errors.push("City cannot be empty.");
+    }
+
+    // Validate State
+    if (!state) {
+        errors.push("State cannot be empty.");
+    }
+
+    // Validate Gender
+    if (!gender) {
+        errors.push("Please select your gender.");
+    }
+
+    // Validate Mobile Number
+    const mobileRegex = /^[0-9]{10}$/;
+    if (!mobile || !mobileRegex.test(mobile)) {
+        errors.push("Please enter a valid mobile number (10 digits).");
+    }
+
+    // Validate Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+        errors.push("Please enter a valid email address.");
+    }
+
+    // Display errors if any
+    if (errors.length > 0) {
+        errorMessagesDiv.innerHTML = errors.join('<br>');
+    } else {
+        // If no errors, you can process the form here (e.g., send data to a server)
+        errorMessagesDiv.innerHTML = "Form submitted successfully!";
+    }
+});

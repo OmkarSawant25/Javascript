@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Multiplication Table</title>
+    <script src="multi.js"></script>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+
+    <label for="num1">Enter start:</label>
+    <input type="number" id="num1">
+    
+    
+    <label for="num2">Enter end:</label>
+    <input type="number" id="num2"><br>
+
+    <button type="button" onclick="generateTable()">Click</button>
+
+    <table style="width:45%;">
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tablebody"></tbody>
+        <p id="op"></p>
+    </table>
+</body>
+</html>
